@@ -3,7 +3,23 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        
         n = len(nums)
-        for _ in range(k):
-            i = nums.pop(n-1)
-            nums.insert(0, i)
+        if k>n:
+            k = k%n
+        for i in range(n//2):
+            t = nums[i]
+            nums[i] = nums[n-i-1]
+            nums[n-i-1] = t
+        
+
+        for i in range(k//2):
+            t = nums[i]
+            nums[i] = nums[k-i-1]
+            nums[k-i-1] = t
+
+
+        for i in range(k,k+(n-k)//2):
+            t = nums[i]
+            nums[i] = nums[k+n-i-1]
+            nums[k+n-i-1] = t
