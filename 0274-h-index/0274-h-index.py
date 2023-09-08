@@ -1,3 +1,12 @@
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
-        return sum(i < j for i, j in enumerate(sorted(citations, reverse=True)))
+        citations = sorted(citations)
+        n = len(citations)
+        count = 0
+
+        for i in range(n):
+            if citations[n-i-1] > i:
+                count += 1
+            else:
+                return count
+        return count
