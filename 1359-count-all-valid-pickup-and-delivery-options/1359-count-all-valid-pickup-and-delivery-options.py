@@ -10,3 +10,7 @@ class Solution:
             places -= 2
 
         return output % (1000000000 + 7)
+
+# for a single p1,d1 combination consider n*n-1 ways to places them
+# half of them are invalid
+# repeat this for all orders
